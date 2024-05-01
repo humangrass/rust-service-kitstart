@@ -1,0 +1,9 @@
+/target
+.idea
+.vscode
+.data
+
+*.yaml
+*.yml
+
+!*.example.*

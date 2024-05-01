@@ -1,0 +1,18 @@
+[package]
+name = "template"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+database = { workspace = true }
+cli = { workspace = true }
+logger = { workspace = true }
+repository = { workspace = true }
+models = { workspace = true }
+log = "0.4.21"
+tokio = { version = "1.37.0", features = ["rt", "rt-multi-thread", "macros"] }
+http = "1.1.0"
+axum = "0.7.5"
+serde = { version = "1.0.198", features = ["derive"] }
+serde_yaml = "0.9.34+deprecated"
+sqlx = { version = "0.7.3", features = ["runtime-async-std-native-tls", "postgres", "uuid", "chrono"] }
