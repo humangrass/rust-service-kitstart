@@ -1,15 +1,14 @@
-use sqlx::{PgPool};
+use std::sync::Arc;
+use sqlx::PgPool;
 
 #[derive(Clone)]
 pub struct Repository {
-    database: PgPool
+    database: Arc<PgPool>,
 }
 
 impl Repository {
     pub fn new(pool: PgPool) -> Self {
-        Self {
-            database: pool,
-        }
+        Self { database: pool.into() }
     }
     pub fn pool(&self) -> &PgPool {
         &self.database

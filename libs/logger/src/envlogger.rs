@@ -1,5 +1,5 @@
-use log::LevelFilter;
 use cli::LogLevel;
+use log::LevelFilter;
 
 pub fn new_envlogger(log_level: LogLevel) {
     let log_level_filter = match log_level {

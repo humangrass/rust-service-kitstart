@@ -1,13 +1,11 @@
-use models::hello_world::HelloWorld;
 use crate::repository::Repository;
+use models::hello_world::HelloWorld;
 
-use sqlx::{Error};
+use sqlx::Error;
 
 impl Repository {
     pub async fn create_hello_world(&self, message: &str) -> Result<HelloWorld, Error> {
-        sqlx::query_as::<_, HelloWorld>(
-            "INSERT INTO hello_world (message) VALUES ($1) RETURNING *"
-        )
+        sqlx::query_as::<_, HelloWorld>("INSERT INTO hello_world (message) VALUES ($1) RETURNING *")
             .bind(message)
             .fetch_one(self.pool())
             .await

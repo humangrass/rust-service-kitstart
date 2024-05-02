@@ -1,7 +1,11 @@
 [workspace]
+resolver = "2"
+default-members = [
+    "services/template",
+]
 members = [
     "services/template",
-
+    "services/handyman",
     "libs/database",
     "libs/cli",
     "libs/logger",

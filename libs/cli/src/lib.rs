@@ -1,9 +1,9 @@
 use std::path::PathBuf;
 
-use clap::{Parser};
+use clap::Parser;
 use serde::Serialize;
 
-#[derive(clap::ValueEnum, Clone, Default, Debug, Serialize, )]
+#[derive(clap::ValueEnum, Clone, Default, Debug, Serialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum LogLevel {
     #[default]
@@ -19,9 +19,15 @@ pub enum LogLevel {
 pub struct Cli {
     /// Sets a custom path to config file
     #[arg(short, long, value_name = "CONFIG_FILE", default_value = "config.yaml")]
-    pub config: Option<PathBuf>,
+    pub config: PathBuf,
     /// Sets a custom log level
-    #[arg(short, long, value_name = "LOG_LEVEL", default_value = "info", value_enum)]
+    #[arg(
+        short,
+        long,
+        value_name = "LOG_LEVEL",
+        default_value = "info",
+        value_enum
+    )]
     pub log_level: LogLevel,
 }
 
