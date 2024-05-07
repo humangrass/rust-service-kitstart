@@ -1,6 +1,6 @@
-use tracing_subscriber::fmt;
 use cli::LogLevel;
-use tracing_subscriber::filter::{LevelFilter};
+use tracing_subscriber::filter::LevelFilter;
+use tracing_subscriber::fmt;
 
 pub fn new_tracer_logger(log_level: LogLevel) {
     let log_level_filter = match log_level {
